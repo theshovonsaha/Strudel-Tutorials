@@ -1,0 +1,639 @@
+// $: s("[bd][#][bd][#]").bank("tr909").dec(0.4).fast(2)
+
+// $: s("[#][hh][#][hh]").bank("tr909").dec(0.8).fast(2).gain(0.4)
+// // $: s("[#][#][#][#] [#][#][#][#] [hh] [hh] [hh] [hh][#][#][#][#] ").bank("tr909").dec(0.8).fast(1).gain(0.1)
+
+// $: note("c3 e3 a2 g2").sound("sawtooth").cutoff("<200 300 400 600>").room(2).slow(16).fast(2).attack(0.5)
+
+
+// $: note("c4 c4 # # # # # # c4 c4 # # # # # #").sound("sawtooth").cutoff("<600>").room(2)
+// $: note("# # e4 e4 # # # # # # e4 e4 # # # #").sound("sawtooth").cutoff("<600>").room(2)
+// $: note(" # # # # g4 g4  # #  # # # # g4 g4 # #").sound("sawtooth").cutoff("<600>").room(2)
+// $: note(" # # # # # # b4 b4 # # # # # # b4 b4").sound("sawtooth").cutoff("<600>").room(2)
+
+
+// $: note("c5 c4 # # # # # # c5 c4 # # # # # #").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note("# # e4 g3 # g3 # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// // $: note(" # # # # g4 a4  # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// // $: note(" # # # # # # b5 c6").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// // $: note("c5 c4 # # # # # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note("# g4 b4 # # # # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note("c4 g4 # # c4 g4 # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+
+
+// $: note("a5 a4 # # # # # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note("# # c4 e3 # e3 # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note(" # # # # e4 a4  # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note(" # # # # # # g5 a6").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note("a5 a4 # # # # # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note("# e4 g4 # # # # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note(" # # # # c4 g4 # # # # # # c4 g4 # # ").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note("c4 g4 # # # # # # c4 g4 # # # # # # ").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note(" # # # # c4 g4 # # # # # # e4 g4 # #").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note("c4 g4 # # # # # # c4 g4 # # # # # #").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note("# # # # # # # # # # # #  ").sound("sawtooth").cutoff("<600>").room(2).slow(4)
+// $: note("c4 g4 # # # # # # c4 g4 # # # # # # ").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note(" # # # # c4 g4 # # # # # # e4 g4 # #").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note("c4 g4 # # # # # # c4 g4 # # # # # #").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note("c3 e3 g3 b3")
+//   .sound("sawtooth")
+//   .cutoff(sine.range(300, 2000)) // Correct LFO for filter
+//   .room(0.8)
+//   .end(32)
+// $: note("a4 e4 # # a4 e4 # #").sound("sawtooth").cutoff("<600>").room(2).fast(1)
+// $: note("c3 g3 # # c3 g3 # #").sound("sawtooth").cutoff("<600>").room(2).fast(4)
+// $: note("c4 g4 # # c4 g4 # #").sound("sawtooth").cutoff("<600>").room(2).fast(4)
+// $: note("c5 g5 # # c5 g5 # #").sound("sawtooth").cutoff("<600>").room(2).fast(4)
+// $: note("c3 g3 # # c3 g3 # #").sound("sawtooth").cutoff("<600>").room(2).fast(4)
+// $: note("c4 g4 # # c4 g4 # #").sound("sawtooth").cutoff("<600>").room(2).fast(4)
+// $: note("c5 g5 # # c5 g5 # #").sound("sawtooth").cutoff("<600>").room(2).fast(4)
+// $: note("# c4 # # # # # #").sound("sawtooth").cutoff("<600>").room(2).slow(2)
+// $: note(" # # # # # # # # # # # # # # # # # # # #").sound("sawtooth").cutoff("<600>").room(2).release(3).slow(4)
+// Strudel Live Coding //
+// Title: Digital Dawn (V3 - Correct Syntax)
+
+// --- Part I: Atmosphere ---
+// The piece starts immediately with a foundational pad and bass.
+// These will play for 32 cycles before the final part begins.
+
+ // CORRECT: The pattern will stop playing after 32 cycles.
+
+// $: note("g2 f2 c2 e2")
+//   .sound("sine")
+//   .gain(0.9)
+//   .room(0.6)
+//   .slow(16)
+//   .end(32) // CORRECT: This pattern also stops at 32 cycles.
+
+
+// --- Part II: Awakening ---
+// The kick drum starts after 4 cycles and stops at 32.
+
+// $: s(slowcat(["[bd # # #]", "[bd # bd #]"]))
+//   .bank("tr909")
+//   .decay(0.2)
+//   .gain(0.8)
+//   .fast(2)
+//   .delay(4) // CORRECT: This is the right way to delay the start.
+//   .end(32)
+
+// // The hi-hats enter after 8 cycles and stop at 32.
+// $: s("[# hh # oh]")
+//   .bank("tr909")
+//   .decay(0.3)
+//   .gain(0.7)
+//   .fast(2)
+//   .delay(8) // CORRECT: .delay() is chained to the pattern.
+  // .end(32)
+
+
+// --- Part III: Groove & Melody ---
+// The main piano melody starts at cycle 12 and ends at 32.
+
+// $: note("c4 e4 g4 b4 a4 g4 e4")
+//   .sound("superpiano")
+//   .jux(rev)
+//   .speed(0.5)
+//   .delaytime(0.25)
+//   .delay(0.4) // This is the delay *effect*, which is correct here.
+//   .gain(0.7)
+//   .delay(12) // CORRECT: This is the start time delay.
+//   .end(32)
+
+// // The backbeat starts at 12 and ends at 32.
+// $: s("~ [sn, sn, clap]")
+//   .fast(2)
+//   .bank("tr808")
+//   .gain(0.6)
+//   .delay(12)
+//   .end(32)
+
+// // The rhythmic synth pulse starts at 14 and ends at 32.
+// $: note("c5")
+//   .sound("square")
+//   .euclid(5, 8)
+//   .decay(0.1)
+//   .gain(0.5)
+//   .delay(14)
+//   .end(32)
+
+
+// // --- Part IV: Reflection ---
+// // After 32 cycles, the previous patterns have automatically stopped.
+// // Only these final two patterns will play, creating the outro.
+
+// // A final, slower version of the piano melody plays out.
+// $: note("c4 e4 g4 b4")
+//   .sound("superpiano")
+//   .slow(4)
+//   .delaytime(0.25)
+//   .delay(0.6) // Delay effect
+//   .gain(0.6)
+//   .delay(32) // CORRECT: Starts playing at cycle 32.
+
+// // The original atmospheric pad sound returns for a final, fading statement.
+// $: note("c3 e3 g3 b3")
+//   .sound("sawtooth")
+//   .cutoff(2000)
+//   .room(0.8)
+//   .slow(16)
+//   .delay(32)
+
+
+/////
+
+///////////
+////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+// // Ben Böhmer inspired deep house bassline - Advanced Strudel syntax
+// // Main deep bass foundation
+// $: note("c2 ~ eb2 ~ f2 ~ g2 ~")
+//   .sound("sawtooth")
+//   .lpf(sine.range(200,800).slow(8))
+//   .resonance(0.3)
+//   .attack(0.1)
+//   .decay(0.4)
+//   .sustain(0.6)
+//   .release(0.8)
+//   .room(0.3)
+//   .size(0.7)
+//   .gain(0.8)
+//   .slow(2)
+
+// Sub bass layer with envelope modulation
+// $: note("c1 ~ ~ ~ eb1 ~ ~ ~ f1 ~ ~ ~ g1 ~ ~ ~")
+//   .sound("sine")
+//   .lpf(100)
+//   .attack(0.05)
+//   .decay(1.2)
+//   .sustain(0.3)
+//   .release(1.5)
+//   .gain(0.6)
+//   .slow(2)
+
+// // Rhythmic bass stabs with probability
+// $: note("c2!2 [eb2 f2] g2!2 [ab2 bb2]")
+//   .sound("square")
+//   .lpf(sine.range(300,1200).slow(6))
+//   .resonance(0.4)
+//   .attack(0.01)
+//   .decay(0.3)
+//   .sustain(0.2)
+//   .release(0.4)
+//   .gain(0.5)
+//   .sometimes(x=>x.degradeBy(0.3))
+//   .fast(2)
+
+// Melodic bass arpeggios with euclidean rhythms
+// $: note("[c3,eb3,g3](3,8) [f3,ab3,c4](3,8) [g3,bb3,d4](3,8) [eb3,g3,bb3](3,8)")
+//   .sound("sawtooth")
+//   .lpf(cosine.range(400,1600).slow(12))
+//   .resonance(0.5)
+//   .attack(0.02)
+//   .decay(0.6)
+//   .sustain(0.4)
+//   .release(0.8)
+//   .delay(0.2)
+//   .delaytime(0.125)
+//   .delayfeedback(0.3)
+//   .gain(0.4)
+//   .slow(4)
+
+// // // Deep modulated bass with LFO
+// $: note("c2 ~ eb2 ~ f2 ~ g2 ~")
+//   .sound("triangle")
+//   .lpf(sine.range(150,600).slow(16))
+//   .hpf(40)
+//   .resonance(0.6)
+//   .crush(sine.range(8,16).slow(32))
+//   .shape(0.2)
+//   .attack(0.1)
+//   .decay(0.8)
+//   .sustain(0.7)
+//   .release(1.2)
+//   .phaser(4)
+//   .phaserdepth(0.3)
+//   .room(0.4)
+//   .gain(0.7)
+//   .slow(2)
+//   .rarely(x=>x.rev())
+
+// // // Glitchy bass layer with conditional patterns
+// // $: note("[c2 eb2 f2 g2]*4")
+// //   .sound("sawtooth")
+// //   .lpf(perlin.range(200,1000).slow(8))
+// //   .degradeBy(sine.range(0,0.7).slow(16))
+// //   .sometimes(x=>x.chop(4))
+// //   .sometimes(x=>x.stutter(4))
+// //   .attack(0.01)
+// //   .release(0.2)
+// //   .gain(0.3)
+// //   .pan(sine.slow(7))
+// //   .whenmod(8,6,x=>x.fast(2))
+
+// // // Polyrhythmic bass accents
+// // $: note("{c2 eb2 f2, g1 bb1 c2}%16")
+// //   .sound("pulse")
+// //   .lpf(800)
+// //   .width(sine.range(0.1,0.9).slow(11))
+// //   .attack(0.05)
+// //   .decay(0.4)
+// //   .gain(0.5)
+// //   .delay(0.125)
+// //   .delaytime("1/8 1/16".slow(4))
+// //   .mask("1 0 1 0 1 1 0 1")
+  
+// // // Advanced pattern with nested structures
+// // $: note("[[c2 eb2] [f2 g2] [ab2 bb2] [c3 eb3]]/4")
+// //   .sound("sawtooth")
+// //   .lpf(sine.range(300,1200).slow(6))
+// //   .resonance(sine.range(0.2,0.8).slow(13))
+// //   .attack(rand.range(0.01,0.1))
+// //   .decay(rand.range(0.2,0.8))
+// //   .sustain(rand.range(0.3,0.7))
+// //   .release(rand.range(0.4,1.2))
+// //   .gain(0.6)
+// //   .sometimes(x=>x.ply(2))
+// //   .rarely(x=>x.speed(2))
+// //   .slow(2)
+
+
+// // Ben Böhmer inspired deep house bassline - Corrected Strudel syntax
+// // Main deep bass foundation
+// // $: note("c2 ~ eb2 ~ f2 ~ g2 ~")
+// //   .sound("sawtooth")
+// //   .cutoff(sine.range(200,800).slow(8))
+// //   .resonance(0.3)
+// //   .attack(0.1)
+// //   .decay(0.4)
+// //   .sustain(0.6)
+// //   .release(0.8)
+// //   .room(0.3)
+// //   .gain(0.8)
+// //   .slow(2)
+
+// // // Sub bass layer with envelope modulation
+// $: note("c1 ~ ~ ~ eb1 ~ ~ ~ f1 ~ ~ ~ g1 ~ ~ ~")
+//   .sound("square")
+//   .cutoff(100)
+//   .attack(0.05)
+//   .decay(1.2)
+//   .sustain(0.3)
+//   .release(1.5)
+//   .gain(0.8)
+//   .slow(2)
+
+// // // Rhythmic bass stabs with probability
+// // $: note("c2!2 [eb2 f2] g2!2 [ab2 bb2]")
+// //   .sound("square")
+// //   .cutoff(sine.range(300,1200).slow(6))
+// //   .resonance(0.4)
+// //   .attack(0.01)
+// //   .decay(0.3)
+// //   .sustain(0.2)
+// //   .release(0.4)
+// //   .gain(0.5)
+// //   .sometimes(x=>x.degradeBy(0.3))
+// //   .fast(1)
+
+// // // Melodic bass arpeggios with euclidean rhythms
+// // $: note("[c3,eb3,g3](3,8) [f3,ab3,c4](5,8) [g3,bb3,d4](3,8) [eb3,g3,bb3](5,8)")
+// //   .sound("sawtooth")
+// //   .cutoff(cosine.range(400,1600).slow(12))
+// //   .resonance(0.5)
+// //   .attack(0.02)
+// //   .decay(0.6)
+// //   .sustain(0.4)
+// //   .release(0.8)
+// //   .delay(0.2)
+// //   .delaytime(0.125)
+// //   .delayfeedback(0.3)
+// //   .gain(0.4)
+// //   .slow(4)
+
+// // Deep modulated bass with LFO
+// $: note("c2 ~ eb2 ~ f2 ~ g2 ~")
+//   .sound("triangle")
+//   .cutoff(sine.range(150,600).slow(16))
+//   .hpf(40)
+//   .resonance(0.6)
+//   .crush(sine.range(8,16).slow(32))
+//   .shape(0.2)
+//   .attack(0.1)
+//   .decay(0.8)
+//   .sustain(0.7)
+//   .release(1.2)
+//   .room(0.4)
+//   .gain(0.7)
+//   .slow(2)
+//   .rarely(x=>x.rev())
+
+// // // Glitchy bass layer with conditional patterns
+// // $: note("[c2 eb2 f2 g2]*4")
+// //   .sound("sawtooth")
+// //   .cutoff(sine.range(200,1000).slow(8))
+// //   .degradeBy(sine.range(0,0.7).slow(16))
+// //   .sometimes(x=>x.chop(4))
+// //   .sometimes(x=>x.stutter(4))
+// //   .attack(0.01)
+// //   .release(0.2)
+// //   .gain(0.3)
+// //   .pan(sine.slow(7))
+// //   .when(mod(8), x=>x.fast(2))
+
+// // // Polyrhythmic bass accents
+// // $: note("{c2 eb2 f2, g1 bb1 c2}%16")
+// //   .sound("pulse")
+// //   .cutoff(800)
+// //   .attack(0.05)
+// //   .decay(0.4)
+// //   .gain(0.5)
+// //   .delay(0.125)
+// //   .delaytime("1/8 1/16".slow(4))
+// //   .mask("1 0 1 0 1 1 0 1")
+  
+// // // Advanced pattern with nested structures
+// $: note("[[c2 eb2] [f2 g2] [ab2 bb2] [c3 eb3]]/4")
+//   .sound("sawtooth")
+//   .cutoff(sine.range(300,1200).slow(6))
+//   .resonance(sine.range(0.2,0.8).slow(13))
+//   .attack(rand.range(0.01,0.1))
+//   .decay(rand.range(0.2,0.8))
+//   .sustain(rand.range(0.3,0.7))
+//   .release(rand.range(0.4,1.2))
+//   .gain(0.6)
+//   .sometimes(x=>x.ply(2))
+//   .rarely(x=>x.speed(2))
+//   .slow(2)
+
+// $: note("c4 ~ eb4 f4 ~ g4 ~ bb4 c5 ~ eb5 ~ f5 g5 ~ ~")
+//   .s("sawtooth")
+//   .cutoff("<400 600 800 1200>")
+//   .resonance(0.3)
+//   .attack(0.1)
+//   .decay(0.6)
+//   .sustain(0.4)
+//   .release(1.2)
+//   .delay(0.3)
+//   .delaytime(0.125)
+//   .delayfeedback(0.2)
+//   .room(0.6)
+//   .gain(0.7)
+//   .slow(2)
+
+// $: note("f3 # a3 bb3 c4 ~ bb3 a3 # f3 ~ ~ eb3 f3 ~ ~")
+//   .s("sawtooth")
+//   .cutoff("<600 800 1200 1600>")
+//   .resonance(0.5)
+//   .attack(0.05)
+//   .decay(0.3)
+//   .sustain(0.6)
+//   .release(0.4)
+//   .delay(0.25)
+//   .delaytime(0.125)
+//   // .delayfeedback(0.15)
+//   // .room(0.4)
+//   .gain(0.8)
+//   .slow(2)
+
+
+
+// $: note("f4 g4 a4 bb4 c5 ~ bb4 a4 g4 f4 ~ ~ eb4 f4 ~ ~")
+//   .s("piano")
+//   .cutoff("<800 1200 1600 2000>")
+//   .resonance(0.5)
+//   .attack(0.05)
+//   .decay(0.3)
+//   .sustain(0.6)
+//   .release(0.4)
+//   .delay(0.25)
+//   .delaytime(0.125)
+//   .delayfeedback(0.15)
+//   .room(0.4)
+//   .gain(0.8)
+//   .slow(1)
+
+// $: note("f3 # a3 bb3 # ~ bb3 a3 # f3 ~ ~ eb3 f3 ~ ~")
+//   .s("sawtooth")
+//   .cutoff("<600 800 1200 1600>")
+//   .resonance(0.5)
+//   .attack(0.05)
+//   .decay(0.3)
+//   .sustain(0.6)
+//   .release(0.4)
+//   .delay(0.25)
+//   .delaytime(0.125)
+//   // .delayfeedback(0.15)
+//   // .room(0.4)
+//   .gain(0.8)
+//   .slow(2)
+// $: note(
+//   "f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~")
+//   .s("sawtooth")
+//   .cutoff("<600 600 600 600>")
+//   .resonance(0.5)
+//   .attack(0.05) 
+//   .decay(0.3)
+//   .sustain(0.6)
+//   .release(0.4)
+//   .delay(0.25)
+//   .delaytime(0.125)
+//   // .delayfeedback(0.15)
+//   // .room(0.4)
+//   .gain(0.8)
+//   .slow(8)
+// $: note(
+//   "f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~  e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~")
+//   .s("sawtooth")
+//   .cutoff("<600 600 600 600>")
+//   .resonance(0.5)
+//   .attack(0.05) 
+//   .decay(10)
+//   .sustain(0.6)
+//   .release(0.1)
+//   .delay(0.25)
+//   .delaytime(0.125)
+//   .delayfeedback(0.15)
+//   .room(0.4)
+//   .gain(0.8)
+//   .slow(2)
+// $: note(
+//   "f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # c5 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ c5 # a4 # ~ ~ ~ ~ ~ e4 # a5 # ~ ~ ~ ~ ~ g4 # a3 # ~ ~ ~ ~ ~ a5 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~")
+//   .s("sawtooth")
+//   .cutoff("<600 600 600 600>")
+//   .resonance(0.5)
+//   .attack(0.05) 
+//   .decay(0.3)
+//   .sustain(0.6)
+//   .release(0.4)
+//   .delay(0.25)
+//   .delaytime(0.125)
+//   // .delayfeedback(0.15)
+//   // .room(0.4)
+//   .gain(0.8)
+//   .slow(2)
+
+// $: note(
+//   "# # # # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # c5 # e4 # a4 # e4 # a4 # e4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # e4 # a4 # e4 # a4 # ~ ~ ~ ~ ~ c5 # a4 # ~ ~ ~ ~ ~ e4 # a5 # ~ ~ ~ ~ ~ g4 # a3 # ~ ~ ~ ~ ~ a5 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~f4 # a4 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ f4 # c5 # ~ ~ ~ ~ ~ f4 # a4 # ~ ~ ~ ~ ~ e4 # a4 # ~ ~ ~ ~ ~ c5 # a4 # ~ ~ ~ ~ ~ e4 # a5 # ~ ~ ~ ~ ~ g4 # a3 # ~ ~ ~ ~ ~ a5 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ d4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~ c4 # a4 # ~ ~ ~ ~ ~")
+//   .s("sawtooth")
+//   .cutoff("<600 600 600 600>")
+//   .resonance(0.5)
+//   .attack(0.05) 
+//   .decay(0.3)
+//   .sustain(0.6)
+//   .release(0.4)
+//   .delay(0.25)
+//   .delaytime(0.125)
+//   // .delayfeedback(0.15)
+//   // .room(0.4)
+//   .gain(0.8)
+// //   .slow(4)// Bar 1: Lead motif — emotional piano phrase with grace notes
+// $: note("c4 # d4 eb4 g4 f4 g4 eb4 d4 c4 # #")
+//   .sound("piano")
+//   .gain("0.6 0.8 0.9 1 0.8 0.7 0.7 0.6 0.5 0 0")
+//   .room(1.5)
+//   .attack(0.15)
+//   .release(0.25)
+//   .slow(2)
+
+// Bar 1: Harmony arpeggio — support layer
+// $: note("c3 g3 eb4 g4 c4 g4 eb4 g4")
+//   .sound("piano")
+//   .gain(0.4)
+//   .room(1.2)
+//   .fast(2)
+
+// // Bar 1: Bass root pulse — grounding foundation
+// $: note("c2 # # c2 # # c2 # # c2 # #")
+//   .sound("piano")
+//   .gain(0.3)
+//   .room(1)
+//   .slow(2)
+
+// // Bar 2: Lead continuation — melodic rise and fall
+// $: note("eb4 f4 g4 bb4 a4 g4 f4 eb4 d4 c4 # #")
+//   .sound("piano")
+//   .gain("0.5 0.7 0.9 1 0.85 0.7 0.65 0.5 0.4 0.3 0 0")
+//   .room(1.5)
+//   .attack(0.2)
+//   .release(0.3)
+//   .slow(2)
+
+// // Bar 2: Sustained harmony chord roll
+// $: note("g3 bb3 d4 g4 bb4 d5 g5")
+//   .sound("piano")
+//   .gain(0.35)
+//   .room(1.5)
+//   .slow(1.5)
+//   .legato(1.2)
+
+// // Bar 3: Echo high octave motif — counter melody
+// $: note("# # c5 d5 eb5 f5 g5 eb5 d5 c5 # #")
+//   .sound("piano")
+//   .gain("0.3 0.45 0.55 0.6 0.65 0.6 0.5 0.45 0.35 0 0")
+//   .room(1.6)
+//   .attack(0.2)
+//   .release(0.3)
+//   .fast(4)
+
+// // Bar 3: Supporting low harmony pulse
+// $: note("eb3 g3 bb3 g3 eb3 g3 bb3 g3")
+//   .sound("piano")
+//   .gain(0.35)
+//   .room(1.3)
+
+
+// // Bar 4: Lead phrase resolving down
+// $: note("g4 f4 eb4 d4 c4 bb3 a3 g3 f3")
+//   .sound("piano")
+//   .gain("0.6 0.7 0.8 0.85 0.8 0.7 0.6 0.5 0.4 0.3")
+//   .room(1.5)
+//   .attack(0.15)
+//   .release(0.3)
+//   .slow(2)
+
+// // Bar 4: Bass final low pulse
+// $: note("c2 # # # c2 # # # c2 # # # c2 # # #")
+//   .sound("piano")
+//   .gain(0.3)
+//   .room(1)
+//   .slow(1.5)
+
+// // Resonance modulation: subtle cutoff filter oscillation simulating natural acoustic warmth
+// $: note("c4 g4 eb4 g4")
+//   .sound("piano")
+//   .cutoff(sine.range(500, 1500))
+//   .room(1.2)
+//   .gain(0.2)
+//   .fast(4)
+// === Layer 1: Core Arpeggiated Chords (Bm → G → D → A) ===
+$: note(
+  // Bm
+  "b2 d3 f#3 b3 d3 f#3 b3 d4 g2 b2 d3 g3 b2 d3 g3 b3 d2 f#2 a2 d3 f#2 a2 d3 f#3 a2 c#3 e3 a3 c#3 e3 a3 c#4"
+)
+  .sound("piano")
+  .cutoff(800)
+  .room(1)
+  .attack(0.05)
+  .release(1.5)
+  .slow(4).gain(0.1);
+
+
+// === Layer 2: Midrange Arpeggio Variation (counterpoint) ===
+// $: note(
+//   // Bm variant
+//   "f#3 b3 d4 f#4 b3 d4 f#4 a4 d3 g3 b3 d4 g3 b3 d4 b4 a2 d3 f#3 a3 d3 f#3 a3 f#4 e2 a2 c#3 e3 a2 c#3 e3 c#4"
+// )
+//   .sound("piano")
+//   .cutoff(900)
+//   .room(1.2)
+//   .attack(0.03)
+//   .release(1.2)
+//   .slow(4)
+//   .gain(0.7);
+$: note(
+  // Bm variant
+  "a4 # # # # # a4 # a4 # d4 # # # b5  # c#6  # g5 # # f#4 # # # # # # # # # "
+)
+  .sound("piano")
+  .cutoff(900)
+  .room(1.2)
+  .attack(0.03)
+  .release(1.2)
+  .slow(2)
+  .gain(0.7);
+// === Layer 3: Decorative Filling / Ornamentation ===
+// $: note(
+//   "a4 b4 a4 g4 f#4 e4 f#4 a4 b4 a4 g4 " + 
+//   "f#4 e4 d4 e4 f#4 e4 d4 c#4 b3 a3 b3"
+// )
+//   .sound("piano")
+//   .cutoff(1100)
+//   .room(1.5)
+//   .attack(0.02)
+//   .release(0.8)
+//   .fast(2)
+//   .gain(0.6);
+
+// // === Layer 4: Golden-Ratio Lead (main melody line) ===
+// $: note(
+//   // Phrase 1 (~2.618 motif length in semiquavers)
+//   "b3 d4 f#4 a4 g4 f#4 d4 b3 " +
+//   // Phrase 2
+//   "g3 b3 d4 g4 f#4 e4 d4 c#4 " +
+//   // Phrase 3
+//   "d3 f#3 a3 c#4 b3 a3 f#3 d3 " +
+//   // Phrase 4
+//   "e3 g3 b3 e4 d4 c#4 b3 a3"
+// )
+//   .sound("piano")
+//   .cutoff(1200)
+//   .room(1.8)
+//   .attack(0.01)
+//   .release(2)
+//   .slow(4)
+//   .gain(0.8);
+
+$: note("e4 g#4 b4 e4 g#4 b4 e4 g#4 b4").sound("piano").gain(0.6).room(1.2).slow(2)
