@@ -1,0 +1,46 @@
+
+// setcpm(128/4)
+
+// // Punchy transient-heavy kick
+$: s("bd*4").bank("tr909").decay(0.3).gain(0.95)
+
+// // Minimal crisp hats
+// $: s("~ hh ~ hh").bank("tr909").gain(0.35).fast(2)
+// $: s("~ ~ ~ oh").bank("tr909").gain(0.35).fast(2)
+
+// // Sharp snare
+// // $: s("~ cp ~ cp").bank("tr909").room(0.15).gain(0.7)
+// // $: s("[hh ~ hh oh]*2").bank("tr909").gain(0.36) 
+$: note("~ ~ c4 c4 ~ ~ ~ ~ g4 ~ c3 g3 ~ a3 ~ ~")
+  .sound("sawtooth")
+  .cutoff(sine.range(300, 300).slow(8))
+  .resonance(0.6)
+  .attack(0.01)
+  .decay(0.2)
+  .sustain(0.1)
+  .release(0.25)
+  .shape(0.4)
+
+$: note("~ ~ ~ ~ ~ ~ ~ ~ f4 ~ ~ f4 ~ f4 ~ e4")
+  .sound("square")
+  .cutoff(sine.range(300, 300).slow(8))
+  .resonance(0.6)
+  .attack(0.01)
+  .decay(0.2)
+  .sustain(0.1)
+  .release(0.25)
+  .shape(0.4)
+
+// // ROLLING 16th note bassline - Massano signature
+$: note("c2 c2 c2 c2 c2 c2 c2 c2 c2 c2 c2 c2 c2 c2 c2 c2")
+  .sound("sawtooth")
+  .cutoff(sine.range(300, 300).slow(8))
+  .resonance(0.6)
+  .attack(0.01)
+  .decay(0.2)
+  .sustain(0.1)
+  .release(0.25)
+  .shape(0.4)
+  // .gain(0.85)
+  // Aggressive sidechain effect
+  // .gain(sine.range(0.3, 0.85).fast(4))
